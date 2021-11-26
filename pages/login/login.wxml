@@ -1,0 +1,6 @@
+<!--pages/login/login.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="getUserInformation">点击获取用户信息</button>
+<image src="{{avatarUrl}}"></image>
+<view>{{nickName}}</view>
+
+<button bindtap="uploadimg">云函数上传图片</button>

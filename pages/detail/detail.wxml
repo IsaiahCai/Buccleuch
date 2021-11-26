@@ -1,0 +1,8 @@
+<!--pages/detail/index.wxml-->
+<text>详情页</text>
+
+<block wx:for="{{pubFormInfo}}">
+  <view>{{item.adds.contactname}}</view>
+  <view>{{item.adds.price}}</view>
+  <image class="showimg" mode="aspectFit" src="{{item.imgurl}}"></image>
+</block>

@@ -1,0 +1,35 @@
+<view class="annoucement{">交易时请核查对方身份，谨防受骗</view>
+
+<view>
+  <searchinput></searchinput>
+</view>
+
+<view class="index_swiper">
+  <swiper autoplay indicator-dots circular>
+    <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+      <navigator open-type="navigate" url="{{item.navigator_url}}">
+        <image mode="aspectFill" src="{{item.image_src}}"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="main">
+  <text class="maintext">全部物品</text>
+</view>
+
+<view>
+  <block wx:for="{{imageList}}" wx:key="item">
+    <navigator class="navigator-style" url="/pages/search/index" open-type="navigate">
+        <image class="navigatorimg"  src="{{item.imageUrl}}"></image>
+        <text class="navigator-text">{{item.content}}</text>
+    </navigator>
+  </block>
+</view>
+
+<block wx:for="{{pubForm}}" >
+  <navigator url="/pages/detail/detail?id={{item._id}}">
+    <image class="navigatorimg" mode="widthFix" src="/images/upload.png"></image>
+  </navigator>
+  <view>{{item._id}}</view>
+</block>

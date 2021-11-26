@@ -1,0 +1,8 @@
+/* pages/detail/index.wxss */
+
+.showimg{
+  height: 300rpx;
+  background-color: ivory;
+  margin: 20rpx 80rpx;
+
+}

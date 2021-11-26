@@ -1,0 +1,135 @@
+<!--pages/publish/index.wxml-->
+
+<form bindsubmit="bindFormSubmit"> 
+
+  <view class="region3">
+    <view class="margin-general">
+      <view class="inline">选择发布类别：</view>
+        <view >
+          <input name="type" placeholder="填写"/>
+        </view>
+    </view> 
+
+
+    <view class="margin-general">
+      <view class="inline">标题：</view>
+        <view >
+          <input name="title" placeholder="填写标题"/>
+        </view>
+    </view> 
+
+    <view class="margin-general">
+        <picker name="category" bindchange = "bindPickerChange" value="{{index}}"   range="{{categoryList}}">
+          <view class="clearBoth">
+            <text>选择分类：{{categoryList[index]}}</text> 
+          </view>
+        </picker>
+    </view>
+
+    <view class="margin-general">
+      <view class="inline">交易地址：</view>
+      <view >
+        <input name="address" placeholder="(点击选择所在地址)"/>
+        <button bindtap="getUserLocation" type="default" size="mini" >请选择地址</button>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="region3">
+    <view class="margin-general">
+      <view class="padding1"> 交易形式：</view>
+      <view>
+        <checkbox-group name="trans" bindchange="checkboxChange">
+          <label wx:for="{{transList}}" wx:key="{{item.value}}">
+            <view class="settingFloat">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+            </view>
+            <view class="settingFloat">{{item.name}}</view>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <view class="clearBoth">
+      <view class="margin-block">
+        <view class="inline"> 出售价格(英镑)：</view>
+          <view >
+            <input name="price" class="inline" placeholder="请输入" maxlength="4" type="number"/>
+            <view style=" color:dimgrey;">/镑</view>
+          </view>
+      </view>
+    </view>
+
+    <view class="margin-general">
+      <view class="inline">商品原价(英镑)：</view>
+      <view >
+        <input name="originalprice" class="inline" placeholder="请输入" maxlength="5" type="number"/>
+        <view style="color:dimgrey">/镑</view>
+      </view>
+    </view>
+
+    <view class="margin-general">
+      <picker name="quality" bindchange = "bindPickerChange" value="{{index}}" range="{{qualityList}}">  
+        <view class="clearBoth"> 
+          <text>产品成色：{{qualityList[index]}}</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="margin-general">
+      <text>上传图片: </text>
+      <image class="uploadimg" bindtap="chooseImg" mode="widthFix" src="/images/upload.png">选择图片</image>
+      <view name="imgurl">
+        <image class="showimg" mode="widthFix" src="{{imgurl}}"></image>
+      </view>
+    </view>
+ 
+    <view>
+      <view class="margin-general">产品描述</view>
+      <textarea name="desc" class="textarea" placeholder="请说明物品名称，参数，或价格说明等信息" />
+    </view>
+  </view>
+
+  <view class="region3">
+
+    <view class="margin-general">
+      <view class="inline">联系人：</view>
+      <view ><input class="contentalign" name="contactname" placeholder="请输入名字" type="text"/></view>
+    </view>
+
+    <view class="margin-general">
+      <view class="inline">联系方式：</view>
+      <view> 
+        <input class="contentalign" name="phone" maxlength="14" type="number" placeholder="请输入联系方式"/>
+      </view>
+    </view>
+
+    <view class="margin-general">
+      <view class="inline">学校：</view>
+      <view><input class="contentalign" name="university" maxlength="50" placeholder="可以提高交易几率哦"/></view>
+    </view>
+
+    <view class="margin-general">
+      <view class="inline">有效日期：</view>
+      <view><input class="contentalign" name="validtime" maxlength="11" placeholder="可以提高交易几率哦"/></view>
+    </view>
+
+  </view>
+
+
+  <view style="margin: 50rpx 0rpx 30rpx 20rpx;">
+    <label >
+      <view class="inline"> 
+       <checkbox value='cb' checked="false" />
+      </view>
+    </label>
+    <view>我已阅读并同意异国二手平台【发布须知】</view>
+  </view>
+
+
+  <view style="margin: 0rpx 20rpx 50rpx 20rpx;">
+    <button  type="primary" form-type="submit">立即提交</button>
+  </view>
+
+</form>

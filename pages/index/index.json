@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "searchinput":"../../components/searchinput/searchinput"
+  },
+  "navigationBarTitleText": "异国二手平台"
+
+
+}
+
